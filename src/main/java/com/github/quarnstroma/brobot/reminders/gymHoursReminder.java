@@ -1,6 +1,6 @@
-package brobot.reminders;
+package com.github.quarnstroma.brobot.reminders;
 
-import brobot.Brobot;
+import com.github.quarnstroma.brobot.Brobot;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

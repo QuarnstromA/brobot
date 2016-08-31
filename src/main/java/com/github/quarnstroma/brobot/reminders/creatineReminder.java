@@ -1,6 +1,6 @@
-package brobot.reminders;
+package com.github.quarnstroma.brobot.reminders;
 
-import brobot.Brobot;
+import com.github.quarnstroma.brobot.Brobot;
 
 import java.util.TimerTask;
 

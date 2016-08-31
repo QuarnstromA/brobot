@@ -1,13 +1,13 @@
-package brobot;
+package com.github.quarnstroma.brobot;
 
-import brobot.reminders.creatineReminder;
+import com.github.quarnstroma.brobot.reminders.creatineReminder;
 import com.twilio.sdk.TwilioRestClient;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
-import brobot.reminders.gymHoursReminder;
+import com.github.quarnstroma.brobot.reminders.gymHoursReminder;
 
 import java.io.InputStream;
 import java.util.*;

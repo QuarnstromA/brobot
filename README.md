@@ -1,1 +1,1 @@
-# brobot
+# com.github.quarnstroma.brobot
