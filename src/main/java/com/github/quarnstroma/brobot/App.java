@@ -7,8 +7,14 @@ public class App {
     public static void main(String args[]) throws InterruptedException {
         Brobot brobot = new Brobot();
         System.out.println("Brobot starting...");
-        while(brobot.isRunning()){
+        try {
             brobot.run();
+            while (brobot.isRunning()) {
+                //idle
+            }
+        }
+        finally{
+            brobot.sendSMS("I'm dead.");
         }
     }
 }
