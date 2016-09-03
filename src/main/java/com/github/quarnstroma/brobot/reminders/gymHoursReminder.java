@@ -4,40 +4,35 @@ import com.github.quarnstroma.brobot.Brobot;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
+import java.io.IOException;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by eisenhorn on 8/29/2016.
  */
 public class gymHoursReminder extends TimerTask{
-    WebDriver driver;
     Brobot brobot;
-    int temp;
 
     public gymHoursReminder(Brobot brobot){
         this.brobot = brobot;
-        temp=0;
-    }
-
-    private void createNewDriver(){
-        driver  = new PhantomJSDriver();
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
     }
 
     public void run() {
-        temp++;
-        createNewDriver();
-        driver.get("https://www.facebook.com/BoiseStateRecreation");
-        Document doc = Jsoup.parse(driver.getPageSource());
-        Element state = doc.getElementsByClass("_1xm9").first();
-        System.out.println(state.text());
-        Element time = doc.select("span._c24._50f3").first();
-        System.out.println(time.text());
-        brobot.sendSMS("The gym is " + state.text() + " " + time.text());
-        driver.quit();
+        Document doc = null;
+        String message = null;
+        try {
+            doc = Jsoup.connect("https://www.facebook.com/BoiseStateRecreation").get();
+            Element state = doc.getElementsByClass("_1xm9").first();
+            System.out.println(state.text());
+            Element time = doc.select("span._c24._50f3").first();
+            System.out.println(time.text());
+            message = "The gym is " + state.text() + " " + time.text();
+        } catch (IOException e) {
+            message = "I failed to get the time. Please check my logs.";
+            System.out.println(e);
+        }
+
+        //brobot.sendSMS(message);
     }
 }

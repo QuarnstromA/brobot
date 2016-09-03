@@ -1,13 +1,13 @@
 package com.github.quarnstroma.brobot;
 
 import com.github.quarnstroma.brobot.reminders.creatineReminder;
+import com.github.quarnstroma.brobot.reminders.gymHoursReminder;
 import com.twilio.sdk.TwilioRestClient;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
-import com.github.quarnstroma.brobot.reminders.gymHoursReminder;
 
 import java.io.InputStream;
 import java.util.*;
@@ -32,7 +32,6 @@ public class Brobot {
             props = new Properties();
             InputStream fIn = getClass().getResourceAsStream("/config.properties");
             props.load(fIn);
-            System.setProperty("phantomjs.binary.path", props.getProperty("WEBDRIVER_PATH"));
             twilioClient = new TwilioRestClient(props.getProperty("ACCOUNT_SID"), props.getProperty("AUTH_TOKEN"));
             http = HttpClients.createDefault();
             post = new HttpPost("https://api.twilio.com/2010-04-01/Accounts/"+twilioClient.getAccountSid()+"/Messages.json");

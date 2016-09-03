@@ -14,12 +14,6 @@
             <artifactId>twilio-java-sdk</artifactId>
             <version>(6.0,6.9)</version>
         </dependency>
-        <!-- Actual Webpage Rendering/interaction for JS -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>2.44.0</version>
-        </dependency>
         <!-- Easy HTML parsing -->
         <dependency>
             <groupId>org.jsoup</groupId>
