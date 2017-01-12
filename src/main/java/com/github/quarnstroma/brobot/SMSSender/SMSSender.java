@@ -15,11 +15,11 @@ import java.util.Properties;
 
 public class SMSSender
 {
-    static SMSSender instance;
-    Properties props;
-    TwilioRestClient twilioClient;
-    HttpClient httpClient;
-    HttpPost post;
+    private static SMSSender instance;
+    private Properties props;
+    private TwilioRestClient twilioClient;
+    private HttpClient httpClient;
+    private HttpPost post;
 
     public static SMSSender getInstance()
     {
@@ -81,7 +81,7 @@ public class SMSSender
         return params;
     }
 
-    public TwilioRestClient getTwilioClient()
+    private TwilioRestClient getTwilioClient()
     {
         return twilioClient;
     }
@@ -91,7 +91,7 @@ public class SMSSender
         this.twilioClient = twilioClient;
     }
 
-    public HttpClient getHttpClient()
+    private HttpClient getHttpClient()
     {
         return httpClient;
     }

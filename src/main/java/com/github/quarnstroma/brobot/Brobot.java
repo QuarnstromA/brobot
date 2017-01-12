@@ -6,16 +6,13 @@ import com.github.quarnstroma.brobot.scheduler.Scheduler;
 
 import java.util.*;
 
-/**
- * Created by eisenhorn on 8/28/2016.
- */
-public class Brobot {
+class Brobot {
 
-    static final long TWENTY_FOUR_HOURS = 86400000;
+    private static final long TWENTY_FOUR_HOURS = 86400000;
 
 
-    Timer timer;
-    Boolean running;
+    private Timer timer;
+    private Boolean running;
 
     public Brobot() {
         try {

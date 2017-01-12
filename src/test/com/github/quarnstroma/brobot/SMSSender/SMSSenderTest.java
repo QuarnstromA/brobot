@@ -50,6 +50,7 @@ public class SMSSenderTest
     private TwilioRestClient mockTwilioRestClient() throws TwilioRestException
     {
         MessageFactory mockMessFactory = mock(MessageFactory.class);
+        //noinspection unchecked
         when(mockMessFactory.create(any(List.class)))
                 .thenReturn(mock(Message.class));
         Account mockAccount = mock(Account.class);

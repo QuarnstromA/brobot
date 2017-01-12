@@ -8,11 +8,8 @@ import org.jsoup.nodes.Element;
 import java.io.IOException;
 import java.util.TimerTask;
 
-/**
- * Created by eisenhorn on 8/29/2016.
- */
 public class gymHoursReminder extends TimerTask{
-    SMSSender sms;
+    private final SMSSender sms;
 
     public gymHoursReminder()
     {
@@ -20,8 +17,8 @@ public class gymHoursReminder extends TimerTask{
     }
 
     public void run() {
-        Document doc = null;
-        String message = null;
+        Document doc;
+        String message;
         try {
             doc = Jsoup.connect("https://www.facebook.com/BoiseStateRecreation").get();
             System.out.println(doc);
@@ -35,7 +32,7 @@ public class gymHoursReminder extends TimerTask{
             message = "The gym is " + state.text() + " " + time.text();
         } catch (IOException e) {
             message = "I failed to get the time. Please check my logs.";
-            System.out.println(e);
+            System.err.println(e);
         } catch (NullPointerException e){
             message = "I'm broken.";
         }

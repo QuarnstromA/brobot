@@ -4,12 +4,9 @@ import com.github.quarnstroma.brobot.SMSSender.SMSSender;
 
 import java.util.TimerTask;
 
-/**
- * Created by eisenhorn on 8/29/2016.
- */
 public class creatineReminder extends TimerTask {
 
-    SMSSender sms;
+    private final SMSSender sms;
 
     public creatineReminder(){
         sms = SMSSender.getInstance();

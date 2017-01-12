@@ -2,10 +2,7 @@ package com.github.quarnstroma.brobot;
 import com.github.quarnstroma.brobot.SMSSender.SMSSender;
 import static java.lang.Thread.sleep;
 
-/**
- * Created by eisenhorn on 8/28/2016.
- */
-public class App {
+class App {
     public static void main(String args[]) throws InterruptedException
     {
         Brobot brobot = new Brobot();
