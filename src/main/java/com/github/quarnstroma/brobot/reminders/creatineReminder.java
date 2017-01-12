@@ -1,6 +1,6 @@
 package com.github.quarnstroma.brobot.reminders;
 
-import com.github.quarnstroma.brobot.Brobot;
+import com.github.quarnstroma.brobot.SMSSender.SMSSender;
 
 import java.util.TimerTask;
 
@@ -9,13 +9,13 @@ import java.util.TimerTask;
  */
 public class creatineReminder extends TimerTask {
 
-    Brobot brobot;
+    SMSSender sms;
 
-    public creatineReminder(Brobot brobot){
-        this.brobot=brobot;
+    public creatineReminder(){
+        sms = SMSSender.getInstance();
     }
 
     public void run() {
-        brobot.sendSMS("Hey bro, take your creatine. Think about your gains!");
+        sms.sendSMS("Hey bro, take your creatine. Think about your gains!");
     }
 }

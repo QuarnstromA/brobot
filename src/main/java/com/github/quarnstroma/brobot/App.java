@@ -1,20 +1,28 @@
 package com.github.quarnstroma.brobot;
+import com.github.quarnstroma.brobot.SMSSender.SMSSender;
+import static java.lang.Thread.sleep;
 
 /**
  * Created by eisenhorn on 8/28/2016.
  */
 public class App {
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String args[]) throws InterruptedException
+    {
         Brobot brobot = new Brobot();
         System.out.println("Brobot starting...");
-        try {
+        SMSSender smsSend = SMSSender.getInstance();
+        try
+        {
             brobot.run();
-            while (brobot.isRunning()) {
-                //idle
+            smsSend.sendSMS("I'm alive.");
+            while (brobot.isRunning())
+            {
+                sleep(1000);//idle
             }
         }
-        finally{
-            brobot.sendSMS("I'm dead.");
+        finally
+        {
+            smsSend.sendSMS("I'm dead.");
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.github.quarnstroma.brobot.reminders;
 
-import com.github.quarnstroma.brobot.Brobot;
+import com.github.quarnstroma.brobot.SMSSender.SMSSender;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,10 +12,11 @@ import java.util.TimerTask;
  * Created by eisenhorn on 8/29/2016.
  */
 public class gymHoursReminder extends TimerTask{
-    Brobot brobot;
+    SMSSender sms;
 
-    public gymHoursReminder(Brobot brobot){
-        this.brobot = brobot;
+    public gymHoursReminder()
+    {
+        sms = SMSSender.getInstance();
     }
 
     public void run() {
@@ -39,6 +40,6 @@ public class gymHoursReminder extends TimerTask{
             message = "I'm broken.";
         }
 
-        brobot.sendSMS(message);
+        sms.sendSMS(message);
     }
 }
